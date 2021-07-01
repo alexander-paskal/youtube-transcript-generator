@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <body>
+        Please enter the YouTube url you would like to create a transcript of:
+        <form action="{{ url_for('home') }} " method="POST">
+            <input type="text" id="url" name="url" value="{{default_url}}">
+            <button type="submit" id="urlButton" value="enter">enter</button>
+        </form>
+
+        Transcript
+        <ul>
+            {% for timestamp, caption in transcript.items() %}
+                <li>{{timestamp}}</li>
+                <li>{{caption}}</li>
+
+            {% endfor %}
+        </ul>
+
+    </body>
+{% endblock %}
